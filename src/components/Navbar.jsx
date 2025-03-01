@@ -17,6 +17,13 @@ import { RxDashboard } from "react-icons/rx";
 import { MdOutlineWeb } from "react-icons/md";
 import { TiSpanner } from "react-icons/ti";
 import { IoTriangleOutline } from "react-icons/io5";
+import { GrTemplate } from "react-icons/gr";
+import { IoBookOutline } from "react-icons/io5";
+import { LuDiamondPercent } from "react-icons/lu";
+import { MdEmojiEmotions } from "react-icons/md";
+import { FaPenNib } from "react-icons/fa";
+import { BiBookContent } from "react-icons/bi";
+import { RiSuitcaseFill } from "react-icons/ri";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -150,32 +157,57 @@ const Navbar = () => {
     {
       sections: [
         {
-          title: "Open Source",
+          title: "Tools",
           items: [
             {
-              icon: <SiTurborepo className="text-white icon" />,
-              title: "Turborepo",
-              description: "Speed with Enterprise scale",
+              icon: <BsBox className="text-white icon" />,
+              title: "Resource Center",
+              description: "Today's best practices",
             },
             {
-              icon: <BsBox className="text-white icon" />,
-              title: "AI SDK",
-              description: "The AI Toolkit for TypeScript",
+              icon: <FaStore className="text-white icon" />,
+              title: "Market Place",
+              description: "Extend an automate workflows",
+            },
+            {
+              icon: <GrTemplate className="text-white icon" />,
+              title: "Templates",
+              description: "Jumpstart app development",
+            },
+            {
+              icon: <IoBookOutline className="text-white icon" />,
+              title: "Guid",
+              description: "Find help quickly",
+            },
+            {
+              icon: <LuDiamondPercent className="text-white icon" />,
+              title: "Partner Finder",
+              description: "Get help from solution partners",
             },
           ],
         },
         {
-          title: "Open Source",
+          title: "Company",
           items: [
             {
-              icon: <SiTurborepo className="text-white icon" />,
-              title: "Turborepo",
-              description: "Speed with Enterprise scale",
+              icon: <MdEmojiEmotions className="text-white icon" />,
+              title: "Customers",
+              description: "Trusted by the best teams",
             },
             {
-              icon: <BsBox className="text-white icon" />,
-              title: "AI SDK",
-              description: "The AI Toolkit for TypeScript",
+              icon: <FaPenNib className="text-white icon" />,
+              title: "Blog",
+              description: "The latest post and changes",
+            },
+            {
+              icon: <BiBookContent className="text-white icon" />,
+              title: "Changelog",
+              description: "See what shipped",
+            },
+            {
+              icon: <RiSuitcaseFill className="text-white icon" />,
+              title: "Press",
+              description: "Read the latest news",
             },
           ],
         },

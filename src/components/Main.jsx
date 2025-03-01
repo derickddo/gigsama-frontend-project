@@ -13,22 +13,18 @@ import { FaChartLine } from "react-icons/fa6";
 import { CiUndo } from "react-icons/ci";
 import { FiBook } from "react-icons/fi";
 import TriImage from "../assets/tri.png";
+import { IoTriangleSharp } from "react-icons/io5";
 
-const HeroSection = () => {
+const Main = () => {
   return (
     <section className="w-[80%] mx-auto mt-[10rem]">
       <div className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
-        {/* 
-          1) Multi-Stop Gradient
-             - Example: from a subtle blue on the left, 
-               fading to black in the center, and red on the right
-             - Adjust to match your exact design screenshot 
-        */}
+     
         <div className="absolute inset-0 " />
 
         {/* 
-          2) Grid Container (top, bottom, left, right)
-             - Absolutely positioned, pointer-events-none so it doesn't block hover
+          Grid Container (top, bottom, left, right)
+            
         */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Top Grid */}
@@ -113,8 +109,8 @@ const HeroSection = () => {
         </div>
 
         {/* 
-          3) Main Content 
-             - Positioned above the gradient and grid 
+          Main Content 
+          - Positioned above the gradient and grid 
         */}
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
           {/* Hero Text */}
@@ -127,10 +123,11 @@ const HeroSection = () => {
 
           {/* Buttons */}
           <div className="flex space-x-4">
-            <button className="px-6 py-3 bg-white text-black rounded-full font-semibold text-sm tracking-wide hover:bg-gray-200 hover:scale-105 transition-transform duration-300 cursor-pointer">
+            <button className="px-6 py-3 bg-white text-black rounded-full font-semibold tracking-wide hover:bg-gray-200 hover:scale-105 transition-transform duration-300 cursor-pointer flex items-center gap-2">
+              <IoTriangleSharp className="" />
               Start Deploying
             </button>
-            <button className="px-6 py-3 border border-gray-500 text-white rounded-full font-semibold text-sm tracking-wide hover:bg-[#111] hover:scale-105 transition-transform duration-300 cursor-pointer">
+            <button className="px-6 py-3 border border-gray-500 text-white rounded-full font-semibold  tracking-wide hover:bg-[#111] hover:scale-105 transition-transform duration-300 cursor-pointer">
               Get a Demo
             </button>
           </div>
@@ -141,14 +138,16 @@ const HeroSection = () => {
 
         
       </div>
+
+
       <div className="border-l border-r border-gray-800 h-[15rem] flex justify-center items-center">
             <p className="text-white font-bold text-3xl text-center leading-1">
             Develop with your favorite tools <FaTerminal className="inline-block" /> 
             <br />
             Launch globally, <TbWorld className="inline-block"/> instantly Keep pushing <IoMdGitMerge className="inline-block" />
-
             </p>
       </div>
+      
       <div className="border border-gray-800">
         <div className="border-b border-gray-800 mt-4"></div>            
         <div className="grid grid-cols-2">
@@ -249,6 +248,8 @@ const HeroSection = () => {
               Security
             </a>
       </div>
+
+
       <div className="border-l  border-r border-b border-gray-800 h-fit relative">
         <div className="absolute border-b border-gray-800 top-4 w-full"></div>  
         <div className="grid grid-cols-3 gap-3">
@@ -288,4 +289,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default Main;

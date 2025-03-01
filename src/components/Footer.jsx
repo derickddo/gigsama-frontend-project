@@ -67,17 +67,8 @@ const Footer = () => {
           • All systems normal
           </a>
           
-          {/* theme toggler */}
-            <div className="flex items-center justify-between mt-4">
-                <p>Dark Mode</p>
-                <div className="flex items-center space-x-2">
-                <BiArrowToBottom className="text-white" />
-                <div className="w-8 h-4 bg-white rounded-full flex items-center">
-                    <div className="w-4 h-4 bg-black rounded-full"></div>
-                </div>
-                </div>
-
-            </div>
+        
+            
         </div>
       </footer>
     );
