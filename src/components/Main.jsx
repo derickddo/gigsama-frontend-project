@@ -272,8 +272,8 @@ const Main = () => {
             </div>
           </div>
           <div className="ml-12">
-            <p className="text-white">
-            Explore Vercel Enterprise with an interactive product tour, trial, or a personalized demo.
+            <p className="text-white font-medium">
+            Explore Vercel Enterprise <span className="text-gray-300">with an interactive product tour, trial, or a personalized demo.</span>
             </p>
             <a href="#" className="mt-4 text-white px-4 py-2 rounded-4xl bg-[#111] border border-gray-800 w-fit flex items-center gap-2 hover:bg-[#333] text-sm">
                   Explore Enterprise

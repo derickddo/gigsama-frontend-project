@@ -33,14 +33,28 @@ const Navbar = () => {
 
   const logoRef = useRef(null);
   const dropdownRef = useRef(null);
-  const productRefs = useRef([]);
+  const navLinks = useRef([]);
   const closeTimeoutRef = useRef(null);
 
   useEffect(() => {
-    productRefs.current = productRefs.current.slice(0, 3);
+    navLinks.current = navLinks.current.slice(0, 3);
+
+    //add border bottom to navbar when scroll
+    const navbar = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+ 
+        navbar.classList.add("border-b");
+        navbar.classList.add("border-gray-800");
+      } else {
+        navbar.classList.remove("border-b");
+        navbar.classList.remove("border-gray-800");
+      }
+    });
   }, []);
 
-  const productDropdowns = [
+  const dropdowns = [
     {
       sections: [
         {
@@ -222,7 +236,7 @@ const Navbar = () => {
     }
 
     setActiveDropdownIndex(index);
-    setSectionLength(productDropdowns[index].sections.length);
+    setSectionLength(dropdowns[index].sections.length);
     console.log("sectionLength", sectionLength);
 
     console.log("index", index);
@@ -235,7 +249,7 @@ const Navbar = () => {
     const isValidNode = e.relatedTarget instanceof Node;
     const relatedTarget = isValidNode ? e.relatedTarget : null;
 
-    const isOutsideLinks = !productRefs.current.some((ref) =>
+    const isOutsideLinks = !navLinks.current.some((ref) =>
       ref?.contains(relatedTarget)
     );
     const isOutsideDropdown = !dropdownRef.current?.contains(relatedTarget);
@@ -299,7 +313,7 @@ const Navbar = () => {
       <nav className="max-w-7xl mx-auto  py-4 flex items-center justify-between">
         <div className="flex items-center space-x-12">
           <a href="/" ref={logoRef} className="flex items-center">
-            <img src={Logo} alt="Vercel" className="w-24" />
+            <img src={Logo} alt="Vercel" className="w-20" />
           </a>
 
           <div
@@ -310,7 +324,7 @@ const Navbar = () => {
               <a
                 key={index}
                 href="#"
-                ref={(el) => (productRefs.current[index] = el)}
+                ref={(el) => (navLinks.current[index] = el)}
                 className="main-link text-gray-400 flex items-center text-sm gap-1 hover:bg-[#333] hover:text-white py-1 px-3 rounded-full relative transition duration-300 group"
                 onMouseEnter={(e) => handleProductMouseEnter(index, e)}
               >
@@ -364,7 +378,7 @@ const Navbar = () => {
             isDropdownOpen ? "dropdown-enter" : "dropdown-exit"
           }`}
           style={{
-            top: `4.5rem`,
+            top: `4.2rem`,
             left: `${dropdownPosition.left}px`,
             zIndex: 50,
           }}
@@ -377,11 +391,11 @@ const Navbar = () => {
           onMouseLeave={handleMouseLeave}
         >
           <div
-            className="absolute w-[1.5rem] h-[1.5rem] border border-gray-300 bg-black -z-10 transition-all ease-in-out duration-300 rotate-45"
+            className="absolute w-[1rem] h-[1.5rem] border border-gray-300 bg-black -z-10 transition-all ease-in-out duration-300 rotate-45"
             style={{
               top: `-10px`,
               left: `${
-                productRefs.current[activeDropdownIndex].getBoundingClientRect()
+                navLinks.current[activeDropdownIndex].getBoundingClientRect()
                   .left -
                 dropdownPosition.left +
                 35
@@ -396,13 +410,13 @@ const Navbar = () => {
             <div
               className={`grid gap-8 w-full transition-all ease-in-out duration-300`}
               style={{
-                gridTemplateColumns: `repeat(${productDropdowns[activeDropdownIndex].sections.length}, minmax(0, 1fr))`,
+                gridTemplateColumns: `repeat(${dropdowns[activeDropdownIndex].sections.length}, minmax(0, 1fr))`,
                 opacity: isDropdownOpen ? 1 : 0, // Fade in/out
                 transform: isDropdownOpen ? "scale(1)" : "scale(0.95)", // Scale animation
                 transitionProperty: "opacity, transform, grid-template-columns", // Animate grid columns
               }}
             >
-              {productDropdowns[activeDropdownIndex].sections.map(
+              {dropdowns[activeDropdownIndex].sections.map(
                 (section, index) => (
                   <div key={index} className="space-y-6">
                     <p className="text-gray-400 text-sm">{section.title}</p>
