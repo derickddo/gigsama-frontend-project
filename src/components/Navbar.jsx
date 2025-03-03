@@ -229,7 +229,7 @@ const Navbar = () => {
     },
   ];
 
-  const handleProductMouseEnter = (index, e) => {
+  const handleNavLinkMouseEnter = (index, e) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
@@ -326,7 +326,7 @@ const Navbar = () => {
                 href="#"
                 ref={(el) => (navLinks.current[index] = el)}
                 className="main-link text-gray-400 flex items-center text-sm gap-1 hover:bg-[#333] hover:text-white py-1 px-3 rounded-full relative transition duration-300 group"
-                onMouseEnter={(e) => handleProductMouseEnter(index, e)}
+                onMouseEnter={(e) => handleNavLinkMouseEnter(index, e)}
               >
                 {label}
                 <IoIosArrowDown className="text-white text-xs transition-transform duration-300 group-hover:rotate-180" />
